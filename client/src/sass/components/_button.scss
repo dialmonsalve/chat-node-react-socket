@@ -1,0 +1,16 @@
+@use "../abstract/variables" as v;
+@use "../abstract/mixins" as m;
+@forward "../abstract/colors";
+.btn {
+  padding: 1rem 2rem;
+  border-radius: 0.6rem;
+  letter-spacing: 1px;
+  font-size: 1.2rem;
+  font-family: "Roboto";
+  font-weight: 300;
+  
+  @include m.responsive(tab-port){
+    font-size: 2rem;
+  }
+  
+}

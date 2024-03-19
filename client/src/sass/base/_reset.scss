@@ -1,0 +1,27 @@
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button,
+input[type="submit"] {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+select {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  cursor: pointer;
+  text-transform: uppercase;
+}

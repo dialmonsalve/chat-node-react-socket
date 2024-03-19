@@ -1,0 +1,44 @@
+@use "sass:map";
+
+$colors: (
+  "green": #6dbc0d,
+  "yellow": #f7d753,
+  "purple": #4b36d4,
+  "red": #b41300,
+  "blue": #003dfe,
+  "pink": #c499c4,
+  "gray": #464444,
+  "orange": #ff5e00,
+  "blulight": #61dafb,
+  "primary": #15C196,
+);
+
+@each $key, $val in $colors {
+  @for $i from 9 through 1 {
+    .bg-#{$key}-light-#{$i}00 {
+      background: linear-gradient(
+        135deg,
+        mix(white, $val, 90 - $i * 10%) 20%,
+        $val 100%
+      );
+    }
+  }
+
+  @for $i from 1 through 9 {
+    .bg-#{$key}-dark-#{$i}00 {
+        background: linear-gradient(
+        35deg,
+        mix(rgb(0, 0, 0), $val,  $i * 10%) 20%,
+        $val 100%
+      );
+    }
+  }
+}
+
+@each $key, $val in $colors {
+  .btn-outline-#{$key} {
+    color: $val;
+    background-color: transparent;
+    border: 1px solid $val;
+  }
+}

@@ -1,0 +1,12 @@
+.vscode/*
+server/node_modules/*
+server/mongo/*
+server/.vscode/*
+
+client/node_modules/*
+client/.vscode/*
+
+socket/node_modules/*
+
+.env
+node_modules/*

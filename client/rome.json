@@ -1,0 +1,29 @@
+{
+  "$schema": "./node_modules/rome/configuration_schema.json",
+  "organizeImports":{
+    "enabled": true
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "a11y": { "useKeyWithClickEvents": "off", "noAutofocus": "warn" },
+      "correctness":{
+        "noUnusedVariables":"warn"
+      },
+      "suspicious":{
+        "noExplicitAny":"off"
+      }
+    }
+    
+  },
+  "formatter" : {
+    "enabled": true
+  },
+  "javascript":{
+    "formatter":{
+      "quoteStyle": "single"
+    }
+  }
+}
+

@@ -27,7 +27,7 @@ export const UserChat = ({ chat, user }: Props) => {
 	);
 
 	const truncateText = (text: string) =>
-		text.length > 30 ? `${text.substring(0, 30)}...` : text.substring(0, 30);
+		text.length > 30 ? `${text.substring(0, 17)}...` : text.substring(0, 30);
 
 	return (
 		<div

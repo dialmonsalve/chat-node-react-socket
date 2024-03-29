@@ -1,8 +1,6 @@
 import { useAuthContext } from '../hooks/useAuthContext';
 import { useForm } from '../hooks/useForm';
 
-import styles from '../styles/pages/register.module.css';
-
 const formLogin = {
 	email: '',
 	password: '',
@@ -22,13 +20,13 @@ function LoginPage() {
 	};
 	return (
 		<>
-			<h3 className={styles.subtitle}>Login</h3>
-			<form onSubmit={handleSubmit} className={styles.form}>
+			<h3 className='login__subtitle'>Login</h3>
+			<form onSubmit={handleSubmit} className='login__form'>
 				<input
 					type='email'
 					name='email'
 					placeholder='Email'
-					className={styles.input}
+					className='login__input'
 					value={email}
 					onChange={handleChange}
 				/>
@@ -36,32 +34,32 @@ function LoginPage() {
 					type='password'
 					name='password'
 					placeholder='password'
-					className={styles.input}
+					className='login__input'
 					autoComplete='off'
 					value={password}
 					onChange={handleChange}
 				/>
 				<button
 					type='submit'
-					className={`btn ${styles.btn} ${
-						isLoading ? `${styles.disabled}` : 'btn-outline-blue'
+					className={`btn login__btn ${
+						isLoading ? 'login__disabled' : 'btn-outline-blue'
 					}`}
 					disabled={isLoading}
 				>
 					{isLoading ? 'Validating...' : 'login'}
 				</button>
 				{error && (
-					<div className={styles['container-error']}>
+					<div className='login__container-error'>
 						{error.map((err, i) => (
-							<p className={styles.error} key={i.toString()}>
+							<p className='login__error' key={i.toString()}>
 								{err.msg}
 							</p>
 						))}
 					</div>
 				)}
 				{success && (
-					<div className={styles['container-success']}>
-						<p className={styles.success}>User login successfully</p>
+					<div className='login__container-success'>
+						<p className='login__success'>User login successfully</p>
 					</div>
 				)}
 			</form>

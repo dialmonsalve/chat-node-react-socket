@@ -2,37 +2,36 @@ import { Link } from 'react-router-dom';
 import { useAuthContext } from '../../hooks/useAuthContext';
 import { Notification } from '../chat/Notification';
 
-import styles from '../../styles/components/navbar.module.css';
 
 export const Navbar = () => {
 	const { user, logout } = useAuthContext();
 	return (
-		<nav className={styles.navbar}>
-			<Link className={styles.link} to={'/'}>
-				<h3 className={styles['link-home']}>ChatApp</h3>
+		<nav className="navbar">
+			<Link className="navbar__link" to={'/'}>
+				<h3 className='navbar__link-home'>ChatApp</h3>
 			</Link>
-			<h3 className={styles.logged}>
+			<h3 className="navbar__logged">
 				{user ? `Logged in as ${user.name}` : 'Logged'}
 			</h3>
-			<ul className={styles.container}>
+			<ul className="navbar__container">
 				{user ? (
 					<>
 						<Notification />
-						<li className={styles.item}>
-							<Link onClick={logout} className={styles.link} to='/login'>
+						<li className="navbar__item">
+							<Link onClick={logout} className="navbar__link" to='/login'>
 								Logout
 							</Link>
 						</li>
 					</>
 				) : (
 					<>
-						<li className={styles.item}>
-							<Link className={styles.link} to='/login'>
+						<li className="navbar__item">
+							<Link className="navbar__link" to='/login'>
 								Login
 							</Link>
 						</li>
 						<li>
-							<Link className={styles.link} to='/register'>
+							<Link className="navbar__link" to='/register'>
 								Register
 							</Link>
 						</li>

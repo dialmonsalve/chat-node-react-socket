@@ -7,8 +7,7 @@ import { useFetchRecipient } from '../../hooks/useFetchRecipient';
 export const ChatBox = () => {
 	const [textMessage, setTextMessage] = useState('');
 	const { user } = useAuthContext();
-	const { currentChat, messages, isLoading, sendMessage } =
-		useChatContext();
+	const { currentChat, messages, isLoading, sendMessage } = useChatContext();
 	const { recipientUser } = useFetchRecipient({ chat: currentChat, user });
 
 	const scrollRef = useRef<HTMLDivElement>(null);
@@ -25,14 +24,16 @@ export const ChatBox = () => {
 		);
 	}
 
-	if (isLoading) {
-		return (
-			<p style={{ textAlign: 'center', width: '100%' }}>Loading chat...</p>
-		);
-	}
+	// if (isLoading) {
+	// 	return (
+	// 		<p style={{ textAlign: 'center', width: '100%' }}>Loading chat...</p>
+	// 	);
+	// }
+
 
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
+		if (textMessage === '') return;
 
 		sendMessage({
 			textMessage,
@@ -42,10 +43,7 @@ export const ChatBox = () => {
 	};
 
 	return (
-		<div
-			style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}
-			className='chat-box'
-		>
+		<div className='chat-box'>
 			<div className='chat-header'>
 				<strong>{recipientUser.name}</strong>
 			</div>
@@ -67,13 +65,36 @@ export const ChatBox = () => {
 					</div>
 				))}
 			</div>
-			<form onSubmit={handleSubmit}>
+			<form className='form-send' onSubmit={handleSubmit}>
 				<input
 					type='text'
 					value={textMessage}
-					onChange={(e) => setTextMessage(e.currentTarget.value)}
+					onChange={(e) => {
+						setTextMessage(e.currentTarget.value);
+					}}
+					className='input__send'
 				/>
-				<button type='submit'>send</button>
+				<button
+					className='btn__send'
+					type='submit'
+					disabled={textMessage.length === 0}
+				>
+					<svg
+						xmlns='http://www.w3.org/2000/svg'
+						fill='none'
+						viewBox='0 0 24 24'
+						strokeWidth='1.5'
+						stroke='currentColor'
+						className={`${textMessage.length > 0 ? 'image-btn' : 'image-disabled'}`}
+					>
+						<title>send</title>
+						<path
+							strokeLinecap='round'
+							strokeLinejoin='round'
+							d='M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5'
+						/>
+					</svg>
+				</button>
 				<button type='button'>&#128512;</button>
 			</form>
 		</div>

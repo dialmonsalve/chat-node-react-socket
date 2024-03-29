@@ -2,15 +2,16 @@
 @use "../abstract/mixins" as m;
 @forward "../abstract/colors";
 .btn {
-  padding: 1rem 2rem;
+  padding: .2rem 1rem;
   border-radius: 0.6rem;
   letter-spacing: 1px;
   font-size: 1.2rem;
   font-family: "Roboto";
   font-weight: 300;
+  text-transform: uppercase;
   
   @include m.responsive(tab-port){
-    font-size: 2rem;
-  }
-  
+    font-size: 1.2rem;
+  }  
 }
+

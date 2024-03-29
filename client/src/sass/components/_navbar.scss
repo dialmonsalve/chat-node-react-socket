@@ -1,0 +1,28 @@
+@use "../abstract/variables" as v;
+@use "../abstract/mixins" as m;
+
+.navbar {
+  padding: 1rem 6rem;
+  background-color: v.$black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__logged {
+    color: v.$orange;
+    font-size: 0.8rem;
+  }
+
+  &__container {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  &__link, &__link-home {
+    color: v.$primary;
+    &:hover {
+      color: hsl(200, 80%, 42%);
+    }
+  }
+}

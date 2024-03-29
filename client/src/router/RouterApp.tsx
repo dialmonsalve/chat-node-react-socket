@@ -16,24 +16,24 @@ const routes: RouteObject[] = [
 				index: true,
 				element: (
 					<UnAuthorized>
-						<ChatPage />,
+						<ChatPage />
 					</UnAuthorized>
-				),
+				)
 			},
 
 			{
 				path: 'login',
 				element: (
 					<Authenticated>
-						<LoginPage />,
+						<LoginPage />
 					</Authenticated>
-				),
+				)
 			},
 			{
 				path: 'register',
 				element: (
 					<Authenticated>
-						<RegisterPage />,
+						<RegisterPage />
 					</Authenticated>
 				),
 			},

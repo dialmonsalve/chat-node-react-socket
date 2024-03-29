@@ -6,9 +6,9 @@ export const PotencialChats = () => {
 		useChatContext();
 	const { user, isLoading: userLoading } = useAuthContext();
 
-	if (userLoading || isLoading) {
-		return <div>Loading...</div>;
-	}
+	// if (userLoading || isLoading) {
+	// 	return <div>Loading...</div>;
+	// }
 
 	const isOnline = (id?: string) =>
 		onlineUsers.some((user) => user?.userId === id);
